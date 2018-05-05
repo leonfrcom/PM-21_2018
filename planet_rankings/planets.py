@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri May  4 21:31:46 2018
+
+@author: leonfrcom
+"""
+
 # Planet data
 # -----------
 # There is a separate list for every property (names, diameter, etc.)
@@ -62,8 +69,28 @@ def get_user_selection(options):
     Asks the user to select an option by typing in its number.
     Checks that the input represents a valid selection and returns it.
     """
-
-    pass    # implement the function so that it mentions the docstring here
+    
+    print('0 - Name')
+    print('1 - Diameter')
+    print('2 - Mass')
+    print('3 - Distance')
+    print('4 - Eccentricity')
+    print('5 - Moons')
+    while True:
+        try:
+            
+            b = input('Auswahl? ')
+            print()
+            print()
+            print()
+            b = int(b)
+            if b == 0 or b == 1 or b == 2 or b == 3 or b == 4 or b == 5:
+                return b
+                pass
+            else:
+                pass
+        except ValueError:
+            print('bitte gültige Auswahl treffen.')
 
 
 def sorted_on_attribute(data, sort_row):
@@ -88,7 +115,11 @@ def sorted_on_attribute(data, sort_row):
     
     """
 
-    pass    # implement the function so that it mentions the docstring here
+    aus = zip(planets, solar_data[sort_row])
+    aus = sorted(aus, key=lambda x: x[1])
+    return aus
+
+    # implement the function so that it mentions the docstring here
     # Hint: you may want to
     # - zip together the data elements you are interested in
     # - pass the result to sort
